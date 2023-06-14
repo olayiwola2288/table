@@ -1,0 +1,61 @@
+Fieldset{
+    width:30%;
+    align-items: center;
+    margin:0 auto;
+    border-radius: 20px;
+}
+Fieldset div{
+    display: flex;
+    flex-direction:column;
+    gap: 20px;
+    width:80%;
+    margin: 0 auto;
+}
+Fieldset div input{
+    border-radius: 10px;
+     padding: 10px 0;
+      margin-top: 10px;
+      text-align: center;
+      background-color: aliceblue;
+}
+#myRow ,#myCol, #myOption{
+    padding: 10px 20px;
+    border:1px solid black;
+    border-radius: 10px;
+    text-align: center;
+}
+input:focus{
+    border: 1px solid blue;
+    outline: 1px solid blue;
+}
+#body{
+    background-image: url(image/sala.jpg) ;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
+
+#dataSection {
+    margin-bottom: 30px;
+}
+
+#myTable {
+    margin-top: 20px;
+    background-color: chocolate;
+    margin: 0 auto;
+    border: 1px solid white;
+}
+
+td {
+    padding: 10px;
+    border: 1px solid white;
+}
+
+td:hover {
+    transform: scale(1.2);
+    color: white;
+}
+
+#tableContainer {
+    padding: 50px;
+}

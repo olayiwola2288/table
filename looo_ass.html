@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body id="body">
+    <section id="dataSection">
+        <div style="display: flex; justify-content: center; gap:10px; margin-top: 50px;">
+            <input type="number" id="myRow"placeholder="row">
+            <input type="number" id="myCol"placeholder="colum" onchange="compute()">
+         </div>
+         <div style="display: flex; justify-content: center; gap:10px; margin-top: 50px;">
+            <select name="" id="myOption" onchange="compute()">
+                <option value="Addition" >Addition +</option>
+                <option value="Subtraction">Subtraction -</option>
+                <option value="Multiplication">Multiplication *</option>
+                <option value="Division"> Division /</option>
+            </select>
+            <button style="padding: 10px 15px; border: 1px solid black; border-radius: 5px; background-color: antiquewhite;" onclick="compute()">submit</button>
+         </div>
+
+         <div id="errMsg"></div>
+    </section>
+     <section id="tableContainer">
+        <table id="myTable">
+            
+        </table>
+     </section>
+     <script>
+        const myRow =document.getElementById("myRow")
+        const myCol = document.getElementById("myCol")
+        const myOption =document.getElementById("myOption")
+        const myTable =document.getElementById("myTable")
+        
+        function compute() {
+        
+            if (myRow.value == "" || myCol.value == "") {
+                myTable.innerHTML = ""
+                emptyStr("Enter a Number")
+            } else {
+                tableCompute()
+            }
+
+        }
+
+        function emptyStr(message) {
+            errMsg.innerHTML = message;
+        }
+        
+        function tableCompute() {
+                var tableHtml = ""
+                emptyStr("")
+                myTable.innerHTML = "";
+
+                if (myOption.value == "Addition") {
+                    for (i=1; i<=myRow.value; i++){
+                    tableHtml+=`<tr>`
+                        for(j=1; j<=myCol.value; j++ ){
+    
+                            let answer = i + j;
+                            tableHtml+=`<td>${i} + ${j} = ${answer} </td>`
+                        }
+                        tableHtml+=`</tr>`
+                    }
+                } else if (myOption.value == "Subtraction") {
+                    for (i=1; i<=myRow.value; i++){
+                    tableHtml+=`<tr>`
+                        for(j=1; j<=myCol.value; j++ ){
+    
+                            let answer = i - j;
+                            tableHtml+=`<td>${i} - ${j} = ${answer} </td>`
+                        }
+                        tableHtml+=`</tr>`
+                    }
+                } else if (myOption.value == "Multiplication") {
+                    for (i=1; i<=myRow.value; i++){
+                    tableHtml+=`<tr>`
+                        for(j=1; j<=myCol.value; j++ ){
+    
+                            let answer = i * j;
+                            tableHtml+=`<td>${i} * ${j} = ${answer} </td>`
+                        }
+                        tableHtml+=`</tr>`
+                    }
+                } else {
+                    for (i=1; i<=myRow.value; i++){
+                    tableHtml+=`<tr>`
+                        for(j=1; j<=myCol.value; j++ ){
+    
+                            let answer = (i / j).toFixed(2);
+                            tableHtml+=`<td>${i} / ${j} = ${answer}</td>`
+                        }
+                        tableHtml+=`</tr>`
+                    }
+                }
+
+                
+                myTable.innerHTML=tableHtml
+
+        }
+        
+     </script>
+</body>
+</html>
